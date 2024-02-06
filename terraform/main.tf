@@ -1,12 +1,8 @@
-
-provider "google" {
-#  project = "ecf-studi-413016"
-#  region  = "europe-west1"
-#  zone    = "europe-west1-b"
-project = var.project
-region = var.region
-zone = var.zone
-}
+/*
+ID du live ECF :
+mongo atlas cluster a fabriqué
+ou docker images pour mongodb community
+*/
 
 /*
 configuration reseaux inspiré par le tuto :
@@ -37,7 +33,7 @@ resource "google_compute_firewall" "ssh" {
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["ssh"]
 }
-
+/*
 #creation ressource BDD
 resource "google_compute_instance" "default"{
   name         = "mongodb-community"
@@ -49,6 +45,7 @@ resource "google_compute_instance" "default"{
       image="ubuntu-os-cloud/ubuntu-minimal-2310-amd64"
     }
   }
+  
   #install mongoDB_communty_server
   #metadata_startup_script = "wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc |sudo apt-key add -;echo 'deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/debian bookworm/mongodb-org/5.0 main' | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list;sudo apt update;sudo apt install -y mongodb-org;sudo systemctl enable mongod;sudo systemctl status mongod"
 
@@ -60,8 +57,9 @@ resource "google_compute_instance" "default"{
      }
    }
 }
+*/
 
-#creation resource spark
+# creation resource spark
 # inpiration : https://www.pulumi.com/ai/answers/qs7TPyHrtjnwYno8mYu1xY/managing-gcp-dataproc-spark-and-hadoop-with-terraform
 
 resource "google_dataproc_cluster" "cluster" {
@@ -85,12 +83,4 @@ resource "google_dataproc_cluster" "cluster" {
       }
     }
   }
-}
-
-output "dataproc_cluster_id" {
-  value = google_dataproc_cluster.cluster.id
-}
-
-output "dataproc_cluster_url" {
-  value = "https://console.cloud.google.com/dataproc/clusters/${google_dataproc_cluster.cluster.name}/monitoring?region=${var.region}&project=${var.project}"
 }

@@ -8,15 +8,12 @@ LICENSE : la licence du git (GPL3)<br>
 readme.md : ce readme<br>
 <br>
 Pour deployer l infra :<br>1
-crée un fichier variables.tf
+<br>
 ```bash
 cd terraform
-touch variable.tf
+terraform init
+terraform validate
+terraform plan
+terraform apply
 ```
-mettre les variables project, region et zone
- 
-exemple :<br>
-variable "project"{<br>
-    type = string<br>
-    default = "Mon_projet_google_cloud"<br>
-}
+
