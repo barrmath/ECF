@@ -3,11 +3,11 @@ Work In Progress<br>
 <br>
 arborescence : <br>
 -terraform : dossier comprenant les ressources pour créer une BDD mongoDB et un serveur apache Spark<br>
--app_spark : contient l application (templates, route ...)
+-app_python : contient l'application spark
 LICENSE : la licence du git (GPL3)<br>
 readme.md : ce readme<br>
 <br>
-Pour deployer l infra :<br>1
+Pour deployer l'infra :<br>1
 <br>
 ```bash
 cd terraform
@@ -16,4 +16,3 @@ terraform validate
 terraform plan
 terraform apply
 ```
-
