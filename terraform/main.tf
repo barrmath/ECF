@@ -33,34 +33,10 @@ resource "google_compute_firewall" "ssh" {
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["ssh"]
 }
-/*
-#creation ressource BDD
-resource "google_compute_instance" "default"{
-  name         = "mongodb-community"
-  machine_type = "e2-micro"
-  tags         = ["ssh"]
-
-  boot_disk {
-    initialize_params {
-      image="ubuntu-os-cloud/ubuntu-minimal-2310-amd64"
-    }
-  }
-  
-  #install mongoDB_communty_server
-  #metadata_startup_script = "wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc |sudo apt-key add -;echo 'deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/debian bookworm/mongodb-org/5.0 main' | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list;sudo apt update;sudo apt install -y mongodb-org;sudo systemctl enable mongod;sudo systemctl status mongod"
-
-  network_interface {
-     subnetwork = google_compute_subnetwork.default.id
-
-     access_config {
-      #include this section to give VM an external ip address
-     }
-   }
-}
-*/
 
 # creation resource spark
 # inpiration : https://www.pulumi.com/ai/answers/qs7TPyHrtjnwYno8mYu1xY/managing-gcp-dataproc-spark-and-hadoop-with-terraform
+# c'est long à crée pour les test mongo je commente
 
 resource "google_dataproc_cluster" "cluster" {
   name    = "dataproc-cluster"
@@ -83,4 +59,18 @@ resource "google_dataproc_cluster" "cluster" {
       }
     }
   }
+}
+
+
+# création cluster mongodbatalas WIP
+# https://github.com/mongodb/terraform-provider-mongodbatlas/tree/master/examples/mongodbatlas_cluster/nvme-upgrade
+resource "mongodbatlas_cluster" "cluster" {
+  project_id                  = var.mongo_project_id
+  name                        = var.clusterDBname
+  cluster_type                = "REPLICASET"
+  backup_enabled = false
+  provider_name = "TENANT"
+  backing_provider_name = var.atlas_provider_name
+  provider_region_name = var.atlasregion
+  provider_instance_size_name = var.atlas_instance_size_name
 }
