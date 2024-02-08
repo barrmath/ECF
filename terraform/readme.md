@@ -4,6 +4,7 @@ fichier présent :<ul>
   <li>output.tf : permets de faire sortir des variables</li>
   <li>provider.tf : contient les information sur les fournisseurs clouds</li>
   <li> variables.tf : contient les blocs variables</li>
+</ul>
 <br>
 Vous pouvez créer un fichier de variable.<br>
 exemple.tfvars<br>
