@@ -7,7 +7,7 @@ arborescence : <br>
 LICENSE : la licence du git (GPL3)<br>
 readme.md : ce readme<br>
 <br>
-Pour deployer l'infra :<br>1
+Pour deployer l'infra :<br>
 <br>
 
 ```bash
