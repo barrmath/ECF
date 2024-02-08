@@ -9,6 +9,7 @@ readme.md : ce readme<br>
 <br>
 Pour deployer l'infra :<br>1
 <br>
+
 ```bash
 cd terraform
 terraform init
