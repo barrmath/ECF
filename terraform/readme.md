@@ -8,7 +8,7 @@ fichier présent :<ul>
 <br>
 Vous pouvez créer un fichier de variable.<br>
 exemple.tfvars<br>
-```
+```bash
 region                      = Région_pour_GCP 
 zone                        = Zone_pour_GCP
 project                     = ID_projet_GCP
@@ -24,7 +24,7 @@ atlasregion                 = Region_mongoDB
 ```
 <br>
 Pour lancer :<br>
-```
+```bash
 terraform init
 terraform validate
 terraform plan -var-file example.tfvars
