@@ -29,7 +29,12 @@ variable mongo_project_id{
 }
 
 variable atlas_provider_name{
-    description = "Nom du provider pour mongoDB atlas"
+    description = "Nom du provider principal pour mongoDB atlas"
+    type        = string
+}
+
+variable atlas_backing_provider_name{
+    description = "Nom du provider pour les instances mongoDB atlas"
     type        = string
 }
 

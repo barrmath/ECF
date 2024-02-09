@@ -69,8 +69,8 @@ resource "mongodbatlas_cluster" "cluster" {
   name                        = var.clusterDBname
   cluster_type                = "REPLICASET"
   backup_enabled = false
-  provider_name = "TENANT"
-  backing_provider_name = var.atlas_provider_name
+  provider_name = var.atlas_provider_name
+  backing_provider_name = var.atlas_backing_provider_name
   provider_region_name = var.atlasregion
   provider_instance_size_name = var.atlas_instance_size_name
 }

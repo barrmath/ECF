@@ -7,6 +7,7 @@ fichier présent :<ul>
 </ul>
 <br>
 Vous pouvez créer un fichier de variable.<br>
+<br>
 exemple.tfvars<br>
 
 ```bash
@@ -18,7 +19,8 @@ mongodbatlas_private_key    = votre_clé_privée_pour_mongoDB
 mongodbatlas_public_key     = votre_clé_publique_pour_mongoDB
 
 mongo_project_id            = ID_projet_mongoDB
-atlas_provider_name         = Fournissseur_pour_mongoDB(GCP,AWS-AZURE)
+atlas_provider_name         = Fournissseur_pour_mongoDB(GCP,AWS,AZURE,TENANT pour les M0)
+atlas_backing_provider_name = Votre Fournisseur Cloud GCP AWS AZURE
 provider_instance_size_name = Taille_d_instance_M0_M2_...
 clusterDBname               = Votre_nom_de_cluster
 atlasregion                 = Region_mongoDB
