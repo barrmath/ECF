@@ -4,3 +4,4 @@ terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 terraform/prod.tfvars
 app_python/venv
+__pycache__
