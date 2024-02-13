@@ -91,6 +91,7 @@ resource "mongodbatlas_database_user" "user1" {
     type = "CLUSTER"
   }
 }
-output "user1" {
-  value = mongodbatlas_database_user.user1.username
-}
+
+#output "user1" {
+#  value = mongodbatlas_database_user.user1.username
+#}

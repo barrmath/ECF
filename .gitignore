@@ -5,3 +5,5 @@ terraform/terraform.tfstate.backup
 terraform/prod.tfvars
 app_python/venv
 __pycache__
+.env
+output.txt
