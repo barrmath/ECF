@@ -1,3 +1,5 @@
+# pour GCP
+
 variable "region" {
     description = "Region voulue"
     type        = string    
@@ -12,6 +14,8 @@ variable "project"{
     description = "nom du project"
     type = string
 }
+
+# pour mongoDB atlas
 
 variable "mongodbatlas_private_key" {
     description = "clé privé"
@@ -53,4 +57,21 @@ variable clusterDBname{
     description = "Nom du cluster de la BDD"
     type        = string
     default     = "cluster_0"
+}
+
+variable dbuser{
+    description = "nom pour tulisateur database"
+    type = string
+    default = "user1"
+}
+
+variable dbpassword {
+    description = "mdp pour user"
+    type = string 
+}
+
+variable database_name{
+    description = "nom de la base de donnée"
+    type = string
+    default = "BDD1"
 }

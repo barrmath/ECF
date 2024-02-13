@@ -14,13 +14,24 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 python3-setuptools \
 python3-pip \
 python3-dev \
-python3-venv 
+python3-venv \
+apt-transport-https \
+ca-certificates \
+gnupg \
+curl \
+sudo
+
+#on insatll gcloud-CLI
+RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg && apt-get update -y && apt-get install google-cloud-sdk -y
+
 
 # on active venv car debian utlise pas par defaut pip
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 RUN pip install --upgrade pip && pip install -r requirements.txt
+
+#configurer Gcloud utilisateur
 
 # on lance le serveur flask (a pas utiliser en prod)
 EXPOSE 5000

@@ -1,10 +1,4 @@
 /*
-ID du live ECF :
-mongo atlas cluster a fabriqué
-ou docker images pour mongodb community
-*/
-
-/*
 configuration reseaux inspiré par le tuto :
 https://cloud.google.com/docs/terraform/get-started-with-terraform?hl=fr
 */
@@ -62,8 +56,9 @@ resource "google_dataproc_cluster" "cluster" {
 }
 
 
-# création cluster mongodbatalas WIP
+# création cluster mongodbatalas
 # https://github.com/mongodb/terraform-provider-mongodbatlas/tree/master/examples/mongodbatlas_cluster/nvme-upgrade
+
 resource "mongodbatlas_cluster" "cluster" {
   project_id                  = var.mongo_project_id
   name                        = var.clusterDBname
@@ -73,4 +68,29 @@ resource "mongodbatlas_cluster" "cluster" {
   backing_provider_name = var.atlas_backing_provider_name
   provider_region_name = var.atlasregion
   provider_instance_size_name = var.atlas_instance_size_name
+}
+
+# DATABASE USER
+resource "mongodbatlas_database_user" "user1" {
+  username           = var.dbuser
+  password           = var.dbpassword
+  project_id         = var.mongo_project_id
+  auth_database_name = "admin"
+
+  roles {
+    role_name     = "readWrite"
+    database_name = var.database_name
+  }
+  labels {
+    key   = "API_goldenline"
+    value = "DB User1"
+  }
+
+  scopes {
+    name = mongodbatlas_cluster.cluster.name
+    type = "CLUSTER"
+  }
+}
+output "user1" {
+  value = mongodbatlas_database_user.user1.username
 }
