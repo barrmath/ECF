@@ -3,6 +3,7 @@ import re
 from google.cloud import dataproc_v1 as dataproc
 from google.cloud import storage
 
+
 def submit_job(project_id, region, cluster_name):
     # Create the job client.
     job_client = dataproc.JobControllerClient(
@@ -37,4 +38,3 @@ def submit_job(project_id, region, cluster_name):
     )
 
     print(f"Job finished successfully: {output}")
-

@@ -1,4 +1,4 @@
-from flask import current_app, send_from_directory, render_template,request
+from flask import current_app, send_from_directory, render_template, request
 
 app = current_app
 
