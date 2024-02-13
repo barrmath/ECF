@@ -1,5 +1,5 @@
-py4j==0.10.9.7
-pyspark==3.5.0
+#py4j==0.10.9.7
+#pyspark==3.5.0
 Flask
 gunicorn
 google-cloud-storage
