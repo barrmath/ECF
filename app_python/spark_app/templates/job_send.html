@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>
+  Bonjour,<br>
+  Vous avez démarrer un job sur le cluster spark.<br>
+  Vous pouvez voir le résultat <a href={{url_for('hello_read')}}>ici</a>
+  Pour retourner au début du site, cliquez <a href={{url_for('index')}}>ici</a><br>.
+  
+{% endblock %}
