@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <title>MatBarr : ECF</title>
-  </head>
-  <body>
-    Coucou tu veux voir mon spark
-  </body>
-  <footer>
-    <br>
-    Pour faire ce site, j'ai utilisé les cours de <a href="https://www.studi.com/fr">studi</a><br>
-  </footer>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<p>
+  Bonjour,<br>
+  Pour démarrer un job hello-world placer sur un bucket, cliquez <a href={{url_for('hello_spark')}}>ici</a><br>.
+  Pour lire le résultat du hello world : cliquez <a href={{url_for('hello_read')}}>ici</a><br>
+{% endblock %}
+
