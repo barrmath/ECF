@@ -10,6 +10,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v2'
+      with:
+        credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
 
     - name: install the gcloud cli
       uses: google-github-actions/setup-gcloud@v2
@@ -18,12 +22,7 @@ jobs:
         #service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         #install_components: 'gke-gcloud-auth-plugin'
         #export_default_credentials: true
-    
-
-    - id: 'auth'
-      uses: 'google-github-actions/auth@v2'
-      with:
-        credentials_json: '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}'
+        
 
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v2'
