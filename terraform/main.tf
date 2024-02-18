@@ -24,14 +24,23 @@ resource "google_compute_firewall" "ssh" {
   direction     = "INGRESS"
   network       = google_compute_network.vpc_network.id
   priority      = 1000
+  # modifier pour un projet stable. Durant le développement j'était "sans IP fixe"
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["ssh"]
 }
 
-# creation resource spark
-# inpiration : https://www.pulumi.com/ai/answers/qs7TPyHrtjnwYno8mYu1xY/managing-gcp-dataproc-spark-and-hadoop-with-terraform
-# c'est long à crée pour les test mongo je commente
+#création d'un bucket pour stoquer le script spark
 
+resource "google_storage_bucket" "static" {
+ name          = "spark_hello_studi"
+ location      = var.region
+ storage_class = "STANDARD"
+
+ uniform_bucket_level_access = true
+}
+
+# creation resource spark
+# inspiration : https://www.pulumi.com/ai/answers/qs7TPyHrtjnwYno8mYu1xY/managing-gcp-dataproc-spark-and-hadoop-with-terraform
 resource "google_dataproc_cluster" "cluster" {
   name    = "dataproc-cluster"
   region = var.region
