@@ -1,5 +1,5 @@
 # Source : https://github.com/nodematiclabs/github-actions-gcp-demo/blob/main/.github/workflows/build-and-deploy.yaml
-name: Deploy app
+name: Deploy_app
 
 on:
   push:
@@ -23,9 +23,9 @@ jobs:
       env:
         GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
       run: |
-        gcloud auth configure-docker us-central1-docker.pkg.dev
-        docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/demo/nginx:latest .
-        docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/demo/nginx:latest
+        gcloud auth configure-docker europe-west1-docker.pkg.dev
+        docker build -t europe-west1-docker.pkg.dev/$GOOGLE_PROJECT/demo/Deploy:latest .
+        docker push europe-west1-docker.pkg.dev/$GOOGLE_PROJECT/demo/Deploy:latest
 
 # pas configguer gke pour l instant
 #    - name: deploy to gke
