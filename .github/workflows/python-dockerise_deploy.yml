@@ -5,7 +5,7 @@ on:
   push:
     branches:
     - 'main'
-    
+
 permissions:
   id-token: write # This is required for requesting the JWT
   contents: read  # This is required for actions/checkout
@@ -16,10 +16,6 @@ jobs:
     steps:
     - uses: 'actions/checkout@v4'
 
-    - name: install the gcloud cli
-      uses: google-github-actions/setup-gcloud@v2
-      with:
-        project_id: ${{ secrets.GOOGLE_PROJECT }}
 
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
@@ -27,6 +23,10 @@ jobs:
         project_id: ${{ secrets.GOOGLE_PROJECT }}
         workload_identity_provider: https://iam.googleapis.com/projects/1065734788598/locations/global/workloadIdentityPools/github/providers/my-repo
 
+    - name: install the gcloud cli
+      uses: google-github-actions/setup-gcloud@v2
+      with:
+        project_id: ${{ secrets.GOOGLE_PROJECT }}
       
 
     - name: 'Set up Cloud SDK'
