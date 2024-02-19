@@ -8,3 +8,5 @@ gcloud builds submit --region=votre_region --config cloudbuild.yaml
 '''
 
 ou configurer un trigger 
+
+On est sur une application de type app factory. 
