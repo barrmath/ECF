@@ -35,4 +35,4 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # on lance le serveur flask
 EXPOSE 8080
-CMD gunicorn -b 0.0.0.0:8080  "run:create_app()"
+CMD gunicorn -b 0.0.0.0:5000  "run:create_app()"
