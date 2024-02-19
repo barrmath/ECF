@@ -3,18 +3,17 @@ steps:
     script: |
       docker build -t europe-west1-docker.pkg.dev/$PROJECT_ID/ecfapp/quickstart-image:tag1 .
     automapSubstitutions: true
-#  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
-#    args:
-#      - run
-#      - deploy
-#      - $_SERVICE_NAME
-#      - '--image'
-#      - 'europe-west1-docker.pkg.dev/ecf-studi-413016/ecfapp/quickstart-image:tag1'
-#      - '--region'
-#      - $_DEPLOY_REGION
-#      - '--platform'
-#      - $_PLATFORM
-#    entrypoint: gcloud
-#timeout: 1200s
-images:
-- 'europe-west1-docker.pkg.dev/ecf-studi-413016/ecfapp/quickstart-image:tag1'
+steps:
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    args:
+      - run
+      - deploy
+      - $_SERVICE_NAME
+      - '--image'
+      - 'europe-west1-docker.pkg.dev/ecf-studi-413016/ecfapp/quickstart-image:tag1'
+      - '--region'
+      - $_DEPLOY_REGION
+      - '--platform'
+      - $_PLATFORM
+    entrypoint: gcloud
+timeout: 1200s
