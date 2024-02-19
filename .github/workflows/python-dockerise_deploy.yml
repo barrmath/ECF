@@ -4,7 +4,7 @@ name: Deploy_app
 on:
   push:
     branches:
-    - 'main'
+    - 'main_when_i_retry_no_time_pass_by_google_build'
 
 permissions:
   id-token: write # This is required for requesting the JWT
@@ -21,7 +21,7 @@ jobs:
       uses: 'google-github-actions/auth@v2'
       with:
         project_id: ${{ secrets.GOOGLE_PROJECT }}
-        workload_identity_provider: https://iam.googleapis.com/projects/1065734788598/locations/global/workloadIdentityPools/github/providers/my-repo
+        workload_identity_provider: ${{ secrets.IDPROVIDER }}
 
     - name: install the gcloud cli
       uses: google-github-actions/setup-gcloud@v2
