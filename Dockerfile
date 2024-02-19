@@ -34,5 +34,5 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 #configurer Gcloud utilisateur
 
 # on lance le serveur flask (a pas utiliser en prod)
-EXPOSE 5000
-CMD gunicorn -b 0.0.0.0:5000  "run:create_app()"
+EXPOSE 8080
+CMD gunicorn -b 0.0.0.0:8080  "run:create_app()"
