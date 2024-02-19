@@ -6,3 +6,5 @@ vous avez le fichier cloubuild.yaml qui vous permets de mettre l'image dans un d
 '''bash
 gcloud builds submit --region=votre_region --config cloudbuild.yaml  
 '''
+
+ou configurer un trigger 
