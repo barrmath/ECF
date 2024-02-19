@@ -22,7 +22,7 @@ curl \
 sudo
 
 #on install gcloud-CLI
-RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg && apt-get update -y && apt-get install google-cloud-sdk -y
+#RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg && apt-get update -y && apt-get install google-cloud-sdk -y
 
 
 # on active venv car debian utlise pas par defaut pip
@@ -33,6 +33,6 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 #configurer Gcloud utilisateur
 
-# on lance le serveur flask (a pas utiliser en prod)
+# on lance le serveur flask
 EXPOSE 8080
 CMD gunicorn -b 0.0.0.0:8080  "run:create_app()"
