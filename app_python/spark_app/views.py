@@ -1,5 +1,5 @@
 from flask import current_app, send_from_directory, render_template, request
-
+import os
 app = current_app
 
 
@@ -16,9 +16,9 @@ def index():
 
 @app.route("/Hello_start/", methods=["GET", "POST"])
 def hello_spark():
-    # envoyer le job à faire mettre dans un bucket le discours de macron + le script python. faire une commande pour renvoyer le truc dans le bucket pyspark
-    # os.system("")
-    return render_template("job_send.html")
+    #envoyer le job 
+    resultat = os.system("gcloud dataproc jobs submit pyspark gs://dataproc-examples/pyspark/hello-world/hello-world.py --cluster=dataproc-cluster --region=europe-west1")
+    return render_template("job_send.html", resultat=resultat)
 
 
 @app.route("/Hello_read/", methods=["GET", "POST"])
