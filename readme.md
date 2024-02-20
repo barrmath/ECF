@@ -23,11 +23,13 @@ terraform apply
 
 ## Bloc 2 :<br>
 <br>
-un fichier .github/workflow/python-test-app.yml fait les tests unitaires sur la branche dev_App<br>
-un fichier cloudbuild.yaml va créer une image docker dans artifact registry<br>
-avec bien sur l'aide d'un fichier Dockerfile<br>
-un fichier cloudbuild.yaml va deployer l image docker dans cloud run.<br>
+inspiration : https://github.com/ScriptBytes/DemoApi/blob/dev/cloudbuild.yaml
+Un fichier .github/workflow/python-test-app.yml fait les tests unitaires sur la branche dev_App<br>
+Un fichier cloudbuild.yaml va créer une image docker dans artifact registry avec bien sur l'aide d'un fichier Dockerfile<br>
+Un fichier cloudbuild_deploy.yaml va deployer l image docker dans cloud run.<br>
+<br>
+inspiration : https://github.com/ScriptBytes/DemoApi/blob/dev/cloudbuild.yaml
 <br>
 GCP a été configuré pour les éxécuter automatiquement (cloud build trigger). et les permissions ont été accordés à cloud build pour utiliser cloud run.
 
-## bloc 3 :
+## Bloc 3 :
