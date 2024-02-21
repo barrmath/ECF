@@ -1,12 +1,18 @@
 Ce dossier contient une application Flask.<br>
-Vous avez un Dockerfile qui permets de construire une image docker ou podman.<br>
-Vous avez .github/workflow/python-test-app qui effectue un test de qualité de code et des test unitaire dans github action<br>
-vous avez le fichier cloubuild.yaml qui vous permets de mettre l'image dans un depot artifact repository avec la commande suivante :<br>
+
+Vous avez .github/workflow/python-test-app qui effectue un test de qualité de code et des tests unitaires dans github action<br>
+
 
 '''bash
 gcloud builds submit --region=votre_region --config cloudbuild.yaml  
 '''
 
-ou configurer un trigger 
-
 On est sur une application de type app factory. 
+
+L'application utilise un fichier spark fourni par google dans un bucket pour faire un hello world.
+
+WIP : pour rendre l'appli plus adaptable, des variables d'environnement sont créées mais pas (encore) utilisées.
+
+Pyspark n'est pas installé sur cette application. On utilise Gcloud qui va envoyer directement le fichier python dans le dataproc.
+
+https://cloud.google.com/sdk/gcloud/reference/dataproc/jobs/submit/pyspark

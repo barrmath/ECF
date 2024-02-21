@@ -1,8 +1,13 @@
-# IAAC bloc 1
+# IAAC bloc 1 :
+
+prérequis : configurer Gcloud :
+
+https://cloud.google.com/docs/authentication/gcloud?hl=fr
+
 fichier présent :<ul>
   <li>main.tf : contient les resssources à créer</li>
-  <li>output.tf : permets de faire sortir des variables</li>
-  <li>provider.tf : contient les information sur les fournisseurs clouds</li>
+  <li>output.tf : permet de faire sortir des variables</li>
+  <li>provider.tf : contient les informations sur les fournisseurs clouds</li>
   <li> variables.tf : contient les blocs variables</li>
 </ul>
 <br>

@@ -20,8 +20,3 @@ def hello_spark():
     resultat = os.system("gcloud dataproc jobs submit pyspark gs://dataproc-examples/pyspark/hello-world/hello-world.py --cluster=dataproc-cluster --region=europe-west1")
     return render_template("job_send.html", resultat=resultat)
 
-
-@app.route("/Hello_read/", methods=["GET", "POST"])
-def hello_read():
-    # lire le bucket
-    return render_template("job_read.html")
