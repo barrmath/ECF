@@ -2,11 +2,6 @@ Ce dossier contient une application Flask.<br>
 
 Vous avez .github/workflow/python-test-app qui effectue un test de qualité de code et des tests unitaires dans github action<br>
 
-
-'''bash
-gcloud builds submit --region=votre_region --config cloudbuild.yaml  
-'''
-
 On est sur une application de type app factory. 
 
 L'application utilise un fichier spark fourni par google dans un bucket pour faire un hello world.

@@ -35,9 +35,9 @@ GCP a été configuré pour les éxécuter automatiquement (cloud build trigger)
 
 Pour un démarrage manuel :
 
-'''bash
+```bash
 gcloud builds submit --region=votre_region --config fichier_à_éxéxuter.yaml  
-'''
+```
 
 ## Bloc 3 :
 
